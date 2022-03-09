@@ -1,0 +1,45 @@
+# примеры API-запросов
+
+# создать датчик
+POST http://localhost:8000/api/sensors/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "title": "sens_4",
+  "description": "спальня"
+}
+
+###
+# получить список датчиков
+GET http://localhost:8000/api/sensors/
+
+###
+
+###
+# получить данные одного датчика
+GET http://localhost:8000/api/sensor/2/
+
+###
+# внести изменения в датчик (название, описание)
+PUT http://localhost:8000/api/sensor/up/4/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "title": "sens_5"
+}
+
+###
+# добавление показаний от конкретного сенсора
+POST http://localhost:8000/api/sensor/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "id": "4",
+  "temperature": "22"
+}
