@@ -54,7 +54,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'smart_home.urls'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 
 TEMPLATES = [
     {
@@ -131,4 +131,3 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL = '/media/'

@@ -2,10 +2,9 @@
 # TODO: ListCreateAPIView, RetrieveUpdateAPIView, CreateAPIView
 
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
 from rest_framework.generics import UpdateAPIView, RetrieveAPIView, ListAPIView, CreateAPIView
 from .models import Sensor, Measurement
-from .serializers import SensorSerializer, SensorsSerializer
+from .serializers import SensorsSerializer, MeasurementsSerializer
 
 
 class SensorListView(ListAPIView):
@@ -19,19 +18,15 @@ class SensorListView(ListAPIView):
 
 class SensorRetrieveView(RetrieveAPIView):
     queryset = Sensor.objects.all()
-    serializer_class = SensorSerializer
+    serializer_class = SensorsSerializer
 
 
 class SensorUpdateView(UpdateAPIView):
     queryset = Sensor.objects.all()
-    serializer_class = SensorSerializer
+    serializer_class = SensorsSerializer
 
 
-@api_view(['POST'])
-def temperature_create_view(request):
-    if request.method == 'POST':
-        sensor = Sensor.objects.filter(id=request.data['id'])[0]
-        Measurement.objects.create(di_sensor=sensor, temperature=request.data['temperature'])
-        return Response({'status': 'OK'})
-
+class MeasurementCreateView(CreateAPIView):
+    queryset = Measurement.objects.all()
+    serializer_class = MeasurementsSerializer
 

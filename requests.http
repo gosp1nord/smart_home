@@ -7,8 +7,8 @@ Cache-Control: no-cache
 Content-Type: application/json
 
 {
-  "title": "sens_4",
-  "description": "спальня"
+  "title": "sens_7",
+  "description": "гараж"
 }
 
 ###
@@ -19,27 +19,27 @@ GET http://localhost:8000/api/sensors/
 
 ###
 # получить данные одного датчика
-GET http://localhost:8000/api/sensor/2/
+GET http://localhost:8000/api/sensor/6/
 
 ###
 # внести изменения в датчик (название, описание)
-PUT http://localhost:8000/api/sensor/up/4/
+PUT http://localhost:8000/api/sensor/up/5/
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
 {
-  "title": "sens_5"
+  "title": "sens_6"
 }
 
 ###
 # добавление показаний от конкретного сенсора
-POST http://localhost:8000/api/sensor/
+POST http://localhost:8000/api/measurements/
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
 {
-  "id": "4",
-  "temperature": "22"
+  "sensor": "4",
+  "temperature": "20"
 }
